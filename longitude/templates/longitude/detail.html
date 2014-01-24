@@ -1,0 +1,11 @@
+{% extends 'mygym/base.html' %}
+
+{% block content %}
+<h1> {{ brand }}</h1>
+        <ul>
+            {% for location in brand.location_set.all %}
+                <table>{{ location.address }} - {{location.postal_code}} </table>
+            {% endfor %}
+        </ul>
+{% endblock %}
+

@@ -1,0 +1,34 @@
+
+<div id="header" style="background-color:#F0F8FF;">
+<div style=border:2px solid><u><i><h1>The Brands</i><h1></u></div>
+
+
+</div>
+    <body>
+ <form action="" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+              {% for brand in brands %}
+            <p>You Searched for <strong>{{ brand }}</strong></p>
+            <p>Click on the {{ brand }} to get the detail </p>
+            <p><a href="{{brand.pk}}">{{brand}}</a> </p>
+
+{% endfor %}
+     </form>
+
+ <form action="" method="post">
+ {% csrf_token %}
+     <input type="text" name="add_brand"/>
+     <input type="submit" value="Add"/>
+     {% comment %}<p>Your field has been successfully added to <strong>Brand</strong></p> {% endcomment %}
+     </form>
+<form action="" method="post">
+ {% csrf_token %}
+     <input type="text" name="delete_brand"/>
+     <input type="submit" value="Delete"/>
+ </form>
+
+    <form action="" method="get">
+    <input type="submit" name="all"  value="All brands"/>
+
+</body>

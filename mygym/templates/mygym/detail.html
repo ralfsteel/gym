@@ -1,0 +1,23 @@
+
+
+{% block content %}
+<h1>{{ user }}</h1>
+
+{% for training in user.training_set.all %}
+    <p>{{ training.date }} - {{ training.training_routine }}</p>
+    {% for activity in training.activity_set.all %}
+        {{ activity.user_set }} x {{ activity.user_rep }}
+    {% endfor %}
+{% endfor %}
+
+<hr/>
+
+<p>Todays Date: <small>{{ now|date:'Y-m-d' }}</small></p>
+
+{% endblock %}
+
+
+{% block title %}
+    {{ user }}'s detail page
+{% endblock %}
+

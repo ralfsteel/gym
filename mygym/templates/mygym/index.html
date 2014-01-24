@@ -1,0 +1,16 @@
+{% extends 'mygym/base.html' %}
+
+
+{% block content %}
+<div style="letter-spacing:12px;">user_name</div>
+
+{% for user in users %}
+    <p><a href="{{ user.pk }}">{{ user }}</a></p>
+{% endfor %}
+
+{% endblock %}
+
+
+{% block title %}
+    User List
+{% endblock %}
